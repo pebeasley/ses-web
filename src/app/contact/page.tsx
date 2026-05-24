@@ -1,23 +1,24 @@
 import ContactForm from "@/features/contact/ContactForm";
-import PageHeader from "@/components/PageHeader";
 
 export default function ContactPage() {
   return (
-    <div className="flex flex-1 flex-col gap-24">
-      <div className="flex flex-row items-center justify-center w-full">
-        <PageHeader text="Contact Us" />
-      </div>
-      <div className="flex flex-col md:flex-row gap-24">
-        <p>
-          freestar freestar Lorem ipsum dolor sit amet, consectetur adipiscing
-          elit. Etiam nibh est, finibus et malesuada et, venenatis ac risus.
-          Donec ut elit lacus. Suspendisse maximus laoreet metus, a finibus
-          metus faucibus sed. Vivamus non mauris massa. Phasellus quis bibendum
-          sem, id placerat dolor. Nulla euismod diam massa, sit amet pharetra
-          erat vulputate in. Maecenas vulputate viverra elementum.
-        </p>
+    <main className="bg-base-200 px-6 py-16">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-10 max-w-3xl">
+          <p className="text-sm font-black uppercase tracking-[0.32em] text-success">
+            Contact Southern Edge Services
+          </p>
+          <h1 className="mt-4 text-4xl font-black leading-tight text-primary md:text-6xl">
+            Get reliable technology help without the runaround.
+          </h1>
+          <p className="mt-6 text-xl leading-8 text-base-content/70">
+            Send a few details about what you need and we will follow up with a
+            practical next step for your home or business.
+          </p>
+        </div>
+
         <ContactForm />
       </div>
-    </div>
+    </main>
   );
 }

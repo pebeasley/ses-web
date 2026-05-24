@@ -14,10 +14,8 @@ export default function ContactDialog() {
         Contact Us
       </button>
       <dialog id="my_modal_2" ref={dialogRef} className="modal">
-        <div className="modal-box">
-          <div className="flex flex-1 flex-col w-full justify-center items-center">
-            <ContactForm />
-          </div>
+        <div className="modal-box max-w-6xl bg-transparent p-0 shadow-none">
+          <ContactForm />
         </div>
         <form method="dialog" className="modal-backdrop">
           <button>close</button>
