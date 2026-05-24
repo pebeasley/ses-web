@@ -108,12 +108,6 @@ const services = [
   },
 ];
 
-const trustItems = [
-  { label: "Locally Owned", icon: "⌖" },
-  { label: "Home & Business", icon: "▣" },
-  { label: "Free Estimates", icon: "$" },
-];
-
 export default function Home() {
   return (
     <main className="bg-base-100 text-base-content">
@@ -124,41 +118,7 @@ export default function Home() {
             "linear-gradient(90deg, rgba(2, 13, 28, 0.94) 0%, rgba(2, 13, 28, 0.78) 42%, rgba(2, 13, 28, 0.34) 100%), url('/hero-it-services.jpg')",
         }}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-8">
-          <div className="text-2xl font-black tracking-wide">
-            SOUTHERN EDGE
-            <span className="block text-sm font-bold tracking-[0.3em] text-success">
-              SERVICES
-            </span>
-          </div>
-
-          <nav className="hidden items-center gap-8 text-sm font-semibold lg:flex">
-            <a href="#services" className="hover:text-success">
-              Services
-            </a>
-            <a href="/about" className="hover:text-success">
-              About Us
-            </a>
-            <a href="#reviews" className="hover:text-success">
-              Reviews
-            </a>
-            <a href="#areas" className="hover:text-success">
-              Service Areas
-            </a>
-            <a href="/contact" className="hover:text-success">
-              Contact
-            </a>
-          </nav>
-
-          <div className="hidden items-center gap-5 lg:flex">
-            <ContactDialog />
-            <a href="tel:+12515096035" className="font-bold">
-              (251) 509-6035
-            </a>
-          </div>
-        </div>
-
-        <div className="mx-auto max-w-7xl px-6 pt-20">
+        <div className="mx-auto max-w-7xl px-6 py-24">
           <div className="max-w-3xl">
             <h1 className="text-5xl font-black leading-tight md:text-7xl">
               Reliable IT Services for Homes & Businesses
@@ -178,8 +138,6 @@ export default function Home() {
                 Call Now
               </a>
             </div>
-
-            <div className="mt-12 grid gap-6 sm:grid-cols-3"></div>
           </div>
         </div>
       </section>
