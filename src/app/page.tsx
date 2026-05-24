@@ -1,6 +1,8 @@
 import ContactDialog from "@/features/contact/ContactDialog";
+import ServiceArticle from "@/features/landing/ServiceArticle";
+import { Service } from "@/types/Service";
 
-const services = [
+const services: Service[] = [
   {
     title: "Computer Support",
     image: "/services/computer-support.jpg",
@@ -79,35 +81,7 @@ export default function Home() {
 
           <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {services.map((service) => (
-              <article
-                key={service.title}
-                className="overflow-hidden rounded-box border border-base-300 bg-base-100 shadow-sm"
-              >
-                <div
-                  className="h-48 bg-cover bg-center"
-                  style={{ backgroundImage: `url(${service.image})` }}
-                />
-
-                <div className="relative p-7 pt-10">
-                  <div className="absolute -top-8 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-2xl font-black text-white ring-4 ring-white">
-                    {service.icon}
-                  </div>
-
-                  <h3 className="text-2xl font-black text-primary">
-                    {service.title}
-                  </h3>
-                  <p className="mt-4 leading-7 text-base-content/70">
-                    {service.description}
-                  </p>
-
-                  <a
-                    href="/contact"
-                    className="mt-6 inline-flex font-bold text-success hover:text-primary"
-                  >
-                    Learn More →
-                  </a>
-                </div>
-              </article>
+              <ServiceArticle key={service.title} service={service} />
             ))}
           </div>
         </div>

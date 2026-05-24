@@ -10,7 +10,7 @@ export default function ContactDialog() {
 
   return (
     <>
-      <button className="btn btn-primary btn-xl" onClick={handleClick}>
+      <button className="btn btn-success btn-lg" onClick={handleClick}>
         Contact Us
       </button>
       <dialog id="my_modal_2" ref={dialogRef} className="modal">
