@@ -1,4 +1,20 @@
 import ContactForm from "@/features/contact/ContactForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Southern Edge Services",
+  description:
+    "Request local technology support for computer issues, Wi-Fi problems, networking, setup, and security systems in Southern Alabama.",
+  alternates: {
+    canonical: "/contact",
+  },
+  openGraph: {
+    title: "Contact Southern Edge Services",
+    description:
+      "Request local technology support for computer issues, Wi-Fi problems, networking, setup, and security systems.",
+    url: "/contact",
+  },
+};
 
 export default function ContactPage() {
   return (

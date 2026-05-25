@@ -1,8 +1,8 @@
 const footerLinks = [
-  { label: "Services", href: "#services" },
+  { label: "Services", href: "/#services" },
   { label: "About Us", href: "/about" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Service Areas", href: "#areas" },
+  { label: "Reviews", href: "/#reviews" },
+  { label: "Service Areas", href: "/#areas" },
 ];
 
 export default function Footer() {

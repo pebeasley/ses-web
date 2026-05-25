@@ -1,5 +1,21 @@
 import PageHeader from "@/components/PageHeader";
+import { Metadata } from "next";
 import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "About Southern Edge Services",
+  description:
+    "Learn about Southern Edge Services, a locally owned technology support provider helping homes and businesses with practical IT service.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About Southern Edge Services",
+    description:
+      "Learn about Southern Edge Services and local technology support for homes and businesses.",
+    url: "/about",
+  },
+};
 
 type AboutPageItems = {
   text: string;

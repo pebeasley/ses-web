@@ -15,8 +15,44 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Southern Edge Services",
-  description: "We do edge services in the south",
+  metadataBase: new URL("https://southernedgeservices.com"),
+  title: {
+    default: "Southern Edge Services",
+    template: "%s | Southern Edge Services",
+  },
+  description:
+    "Local computer support, networking, Wi-Fi, security system setup, and troubleshooting for homes and businesses in Southern Alabama.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Southern Edge Services",
+    description:
+      "Local computer support, networking, Wi-Fi, security system setup, and troubleshooting for homes and businesses in Southern Alabama.",
+    url: "/",
+    siteName: "Southern Edge Services",
+    images: [
+      {
+        url: "/hero-it-services.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Southern Edge Services local IT support",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Southern Edge Services",
+    description:
+      "Local computer support, networking, Wi-Fi, security system setup, and troubleshooting for homes and businesses in Southern Alabama.",
+    images: ["/hero-it-services.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
