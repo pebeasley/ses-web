@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ContactDialog from "@/features/contact/ContactDialog";
 
 export default function Navbar() {
   return (
@@ -31,7 +30,9 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-5 lg:flex">
-          <ContactDialog />
+          <Link href="/contact" className="btn btn-success btn-lg">
+            Contact Us
+          </Link>
           <a href="tel:+12515096035" className="font-bold">
             (251) 509-6035
           </a>

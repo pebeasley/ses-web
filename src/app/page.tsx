@@ -1,7 +1,7 @@
-import ContactDialog from "@/features/contact/ContactDialog";
 import ServiceArticle from "@/features/landing/ServiceArticle";
 import { Service } from "@/types/Service";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Computer Support, Wi-Fi & Security Services in Southern Alabama",
@@ -159,7 +159,9 @@ export default function Home() {
             </p>
 
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-              <ContactDialog />
+              <Link href="/contact" className="btn btn-success btn-lg">
+                Contact Us
+              </Link>
               <a
                 href="tel:+12515096035"
                 className="btn btn-outline btn-lg border-white px-10 text-white hover:bg-white hover:text-primary"
@@ -258,7 +260,9 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col gap-3 sm:flex-row md:flex-col lg:flex-row">
-            <ContactDialog />
+            <Link href="/contact" className="btn btn-success btn-lg">
+              Contact Us
+            </Link>
             <a
               href="tel:+12515096035"
               className="btn btn-outline btn-lg border-white px-8 text-white hover:bg-white hover:text-primary"
