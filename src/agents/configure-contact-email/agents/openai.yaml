@@ -1,0 +1,6 @@
+interface:
+  display_name: "Configure Contact Email"
+  short_description: "Safely update Gmail contact-form credentials"
+  default_prompt: "Use $configure-contact-email to update the Gmail credentials and destination inbox for this app's contact form."
+policy:
+  allow_implicit_invocation: true

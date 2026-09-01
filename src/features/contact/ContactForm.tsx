@@ -1,8 +1,8 @@
 "use client";
 
 import { contact } from "@/features/contact/contact";
-import { useActionState } from "react";
-import { ContactActionState } from "./Types";
+import { useActionState, useEffect, useRef } from "react";
+import type { ContactActionState } from "./Types";
 
 const initialState: ContactActionState = { status: "idle" };
 
@@ -18,9 +18,17 @@ const contactMethods = ["Phone", "Email", "Text"];
 
 export default function ContactForm() {
   const [state, formAction, isPending] = useActionState(contact, initialState);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      formRef.current?.reset();
+    }
+  }, [state.status]);
 
   return (
     <form
+      ref={formRef}
       action={formAction}
       className="grid w-full overflow-hidden rounded-box border border-base-300 bg-white shadow-xl lg:grid-cols-[0.9fr_1.1fr]"
     >
@@ -90,6 +98,8 @@ export default function ContactForm() {
 
         {state.status !== "idle" && (
           <div
+            role={state.status === "error" ? "alert" : "status"}
+            aria-live="polite"
             className={
               state.status === "success"
                 ? "alert alert-success"
@@ -115,8 +125,16 @@ export default function ContactForm() {
               className="input input-bordered input-primary w-full"
               placeholder="Your name"
               autoComplete="name"
+              aria-invalid={Boolean(state.fieldErrors?.name)}
+              aria-describedby={state.fieldErrors?.name ? "name-error" : undefined}
+              maxLength={100}
               required
             />
+            {state.fieldErrors?.name && (
+              <span id="name-error" className="mt-2 text-sm text-error">
+                {state.fieldErrors.name}
+              </span>
+            )}
           </label>
 
           <label className="form-control w-full">
@@ -129,8 +147,16 @@ export default function ContactForm() {
               className="input input-bordered input-primary w-full"
               placeholder="(251) 555-0123"
               autoComplete="tel"
+              aria-invalid={Boolean(state.fieldErrors?.phone)}
+              aria-describedby={state.fieldErrors?.phone ? "phone-error" : undefined}
+              maxLength={30}
               required
             />
+            {state.fieldErrors?.phone && (
+              <span id="phone-error" className="mt-2 text-sm text-error">
+                {state.fieldErrors.phone}
+              </span>
+            )}
           </label>
         </div>
 
@@ -144,8 +170,16 @@ export default function ContactForm() {
             className="input input-bordered input-primary w-full"
             placeholder="you@example.com"
             autoComplete="email"
+            aria-invalid={Boolean(state.fieldErrors?.email)}
+            aria-describedby={state.fieldErrors?.email ? "email-error" : undefined}
+            maxLength={254}
             required
           />
+          {state.fieldErrors?.email && (
+            <span id="email-error" className="mt-2 text-sm text-error">
+              {state.fieldErrors.email}
+            </span>
+          )}
         </label>
 
         <label className="form-control w-full">
@@ -156,6 +190,8 @@ export default function ContactForm() {
             name="service"
             className="select select-bordered select-primary w-full"
             defaultValue=""
+            aria-invalid={Boolean(state.fieldErrors?.service)}
+            aria-describedby={state.fieldErrors?.service ? "service-error" : undefined}
             required
           >
             <option value="" disabled>
@@ -167,9 +203,19 @@ export default function ContactForm() {
               </option>
             ))}
           </select>
+          {state.fieldErrors?.service && (
+            <span id="service-error" className="mt-2 text-sm text-error">
+              {state.fieldErrors.service}
+            </span>
+          )}
         </label>
 
-        <div className="form-control w-full">
+        <div
+          className="form-control w-full"
+          aria-describedby={
+            state.fieldErrors?.contactMethod ? "contact-method-error" : undefined
+          }
+        >
           <span className="label pb-2 text-sm font-black uppercase tracking-[0.16em] text-primary">
             Preferred Contact Method
           </span>
@@ -190,6 +236,11 @@ export default function ContactForm() {
               </label>
             ))}
           </div>
+          {state.fieldErrors?.contactMethod && (
+            <span id="contact-method-error" className="mt-2 text-sm text-error">
+              {state.fieldErrors.contactMethod}
+            </span>
+          )}
         </div>
 
         <label className="form-control w-full">
@@ -201,8 +252,17 @@ export default function ContactForm() {
             className="textarea textarea-bordered textarea-primary min-h-36 w-full"
             placeholder="Tell us what is happening and the best time to reach you."
             rows={5}
+            minLength={10}
+            maxLength={5000}
+            aria-invalid={Boolean(state.fieldErrors?.message)}
+            aria-describedby={state.fieldErrors?.message ? "message-error" : undefined}
             required
           />
+          {state.fieldErrors?.message && (
+            <span id="message-error" className="mt-2 text-sm text-error">
+              {state.fieldErrors.message}
+            </span>
+          )}
         </label>
 
         <button
